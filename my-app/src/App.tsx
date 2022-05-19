@@ -4,15 +4,17 @@ import UserPage from './pages/UserPage/UserPage';
 import StartPage from './pages/StartPage/StartPage';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import Header from './components/Header/Header';
+import Layout from './components/Layout/Layout';
 
 function App() {
   return (
     <>
-      <Header />
       <Routes>
-        <Route path="/" element={<StartPage />} />
-        <Route path="/user" element={<UserPage />} />
-        <Route path="*" element={<NotFoundPage />} />
+        <Route path="/" element={<Layout />}>
+          <Route index element={<StartPage />} />
+          <Route path="user" element={<UserPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Route>
       </Routes>
     </>
   );
