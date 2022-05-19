@@ -6,5 +6,12 @@
     --color-primary: #0064EB;
     --color-secondary: #E5E5E5;
     --color-text: #808080;
+    --color-bg: #ffffff;
     background-color: var(--color-secondary);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
