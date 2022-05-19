@@ -7,6 +7,7 @@ export const Wrapper = styled.div`
   padding: 40px 57px;
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 `;
 export const Personal = styled.div`
   width: 35%;
@@ -66,4 +67,15 @@ export const FollSingle = styled.div`
   img {
     width: 100%;
   }
+`;
+export const Title = styled.h3`
+  margin-bottom: 30px;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 130%;
+  color: #000000;
+`;
+export const Ul = styled.ul`
+  list-style: none;
+  max-width: 870px;
 `;
