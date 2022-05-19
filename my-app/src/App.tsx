@@ -2,9 +2,8 @@ import './main.css';
 import { Routes, Route } from 'react-router-dom';
 import UserPage from './pages/UserPage/UserPage';
 import StartPage from './pages/StartPage/StartPage';
-import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
-import Header from './components/Header/Header';
 import Layout from './components/Layout/Layout';
+import ErrorPage from './pages/ErrorPage/ErrorPage';
 
 function App() {
   return (
@@ -13,7 +12,7 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<StartPage />} />
           <Route path="user" element={<UserPage />} />
-          <Route path="*" element={<NotFoundPage />} />
+          <Route path="*" element={<ErrorPage />} />
         </Route>
       </Routes>
     </>
