@@ -12,8 +12,8 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<StartPage />} />
-          <Route path="user" element={<UserPage />} />
+          {/* <Route index element={<StartPage />} /> */}
+          <Route index element={<UserPage />} />
           <Route path="user/:id" element={<SingleUserPage />} />
           <Route path="/:id" element={<SingleRepoPage />} />
           <Route path="*" element={<ErrorPage />} />

@@ -32,8 +32,6 @@ const SinglePage = () => {
     setRepo(data);
   }
 
-  console.log(repo);
-
   if (!isLoaded) {
     return <Preloader />;
   } else if (repo) {

@@ -42,7 +42,7 @@ const UserInfo = (props: IProps) => {
       <Styled.Repos>
         <Styled.Title>Repositories ({props.userData.public_repos})</Styled.Title>
         <Styled.Ul>
-          {props.repoData ? (
+          {props.userData.public_repos !== 0 ? (
             props.repoData?.map((repo) => {
               return (
                 <li key={repo.id}>

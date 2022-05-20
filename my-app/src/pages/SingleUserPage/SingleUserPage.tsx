@@ -7,7 +7,6 @@ const SingleUserPage = () => {
   const navigate = useNavigate();
   const goBack = () => navigate(-1);
 
-  console.log(userData);
   return (
     <>
       <div className="container">
