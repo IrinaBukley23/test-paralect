@@ -5,6 +5,7 @@ import RepoInfo from '../../components/RepoInfo/RepoInfo';
 import { useSelector } from 'react-redux';
 import { State } from '../../store/utils';
 import Preloader from '../../components/Preloader/Preloader';
+import CustomLink from '../../components/CustomLink/CustomLink';
 
 const UserPage = () => {
   const { loading, userData } = useSelector((state: State) => state.user);
@@ -22,7 +23,9 @@ const UserPage = () => {
           <img src={userData.avatar_url} alt="photo" />
         </Styled.Photo>
         <Styled.Name>{userData.name}</Styled.Name>
-        <Styled.Username>{userData.login}</Styled.Username>
+        <CustomLink to={'/user/:${userData.id}'} target="_blank">
+          <Styled.Username>{userData.login}</Styled.Username>
+        </CustomLink>
         <Styled.Statistics>
           <Styled.Followers>
             <Styled.FollDbl>

@@ -3,11 +3,12 @@ import { Link } from 'react-router-dom';
 interface IProps {
   children: React.ReactNode;
   to: string;
+  target?: string;
 }
 
-const CustomLink = ({ children, to, ...props }: IProps) => {
+const CustomLink = ({ children, to, target }: IProps) => {
   return (
-    <Link to={to} {...props}>
+    <Link to={to} target={target}>
       {children}
     </Link>
   );

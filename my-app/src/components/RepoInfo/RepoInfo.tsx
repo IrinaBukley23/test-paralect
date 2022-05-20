@@ -9,7 +9,7 @@ interface IProps {
 const RepoInfo = (props: IProps) => {
   return (
     <Styled.Item>
-      <CustomLink to={`/${props.repoItem.id}`} key={props.repoItem.id}>
+      <CustomLink target="_blank" to={`/${props.repoItem.id}`} key={props.repoItem.id}>
         <Styled.Title>{props.repoItem.name}</Styled.Title>
       </CustomLink>
       <Styled.Descr>{props.repoItem.description}</Styled.Descr>

@@ -14,11 +14,11 @@ const SinglePage = () => {
   const [repo, setRepo] = useState<IRepoList>();
   const [isLoaded, setIsLoaded] = useState(false);
 
+  const res: Array<string> = [];
   useEffect(() => {
     getData(`https://api.github.com/repos/${userData.login}/${res}`);
-  }, []);
+  }, [res, userData.login]);
 
-  const res: Array<string> = [];
   repoData.map((elem) => {
     elem.id == id ? res.push(elem.name) : res;
   });
@@ -29,6 +29,8 @@ const SinglePage = () => {
     setIsLoaded(true);
     setRepo(data);
   }
+
+  console.log(repo);
 
   if (!isLoaded) {
     return <Preloader />;
