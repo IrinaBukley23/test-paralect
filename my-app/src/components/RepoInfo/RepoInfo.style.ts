@@ -5,6 +5,9 @@ export const Item = styled.div`
   margin-bottom: 24px;
   padding: 24px 32px;
   border-radius: 6px;
+  a {
+    text-decoration: none;
+  }
 `;
 export const Title = styled.div`
   margin-bottom: 16px;

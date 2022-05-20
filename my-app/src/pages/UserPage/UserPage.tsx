@@ -41,11 +41,10 @@ const UserPage = () => {
       <Styled.Repos>
         <Styled.Title>Repositories ({userData.public_repos})</Styled.Title>
         <Styled.Ul>
-          {repoData.map((item, i) => {
+          {repoData?.map((repo) => {
             return (
-              // eslint-disable-next-line react/jsx-key
-              <li>
-                <RepoInfo key={i} repoItem={item} />
+              <li key={repo.id}>
+                <RepoInfo repoItem={repo} />
               </li>
             );
           })}

@@ -1,4 +1,5 @@
 import { IRepoList } from '../../store/utils';
+import CustomLink from '../CustomLink/CustomLink';
 import * as Styled from './RepoInfo.style';
 
 interface IProps {
@@ -8,7 +9,9 @@ interface IProps {
 const RepoInfo = (props: IProps) => {
   return (
     <Styled.Item>
-      <Styled.Title>{props.repoItem.name}</Styled.Title>
+      <CustomLink to={`/${props.repoItem.id}`} key={props.repoItem.id}>
+        <Styled.Title>{props.repoItem.name}</Styled.Title>
+      </CustomLink>
       <Styled.Descr>{props.repoItem.description}</Styled.Descr>
     </Styled.Item>
   );

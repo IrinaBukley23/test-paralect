@@ -6,7 +6,6 @@ interface IProps {
 }
 
 const CustomLink = ({ children, to, ...props }: IProps) => {
-
   return (
     <Link to={to} {...props}>
       {children}

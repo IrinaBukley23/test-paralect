@@ -13,7 +13,7 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<StartPage />} />
           <Route path="user" element={<UserPage />} />
-          <Route path="user/:id" element={<SinglePage />} />
+          <Route path="/:id" element={<SinglePage />} />
           <Route path="*" element={<ErrorPage />} />
         </Route>
       </Routes>
