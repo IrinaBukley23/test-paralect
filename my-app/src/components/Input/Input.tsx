@@ -1,14 +1,26 @@
 import * as Styled from './Input.style';
-import search from '../../assets/icons/search.png';
+import searchImg from '../../assets/icons/search.png';
 
-const Input = () => {
+interface IProps {
+  isActive: boolean;
+  value: string;
+  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleSubmit: (e: React.ChangeEvent<HTMLFormElement>) => void;
+}
+
+const Input = (props: IProps) => {
   return (
-    <Styled.Input>
-      <input type="text" placeholder="Enter GitHub username" />
+    <Styled.Form onSubmit={props.handleSubmit}>
+      <input
+        type="text"
+        placeholder="Enter GitHub username"
+        value={props.value}
+        onChange={props.handleChange}
+      />
       <Styled.Icon>
-        <img src={search} alt="search" />
+        <img src={searchImg} alt="search" />
       </Styled.Icon>
-    </Styled.Input>
+    </Styled.Form>
   );
 };
 

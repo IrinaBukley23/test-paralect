@@ -1,25 +1,27 @@
-import { Dispatch } from 'react';
-import { Action } from 'redux';
-import { IUserList, UserTypes } from './actionTypes';
+import { IRepoList, IUserList } from '../utils';
+import { UserTypes } from './actionTypes';
 
-export const setFetchUser = () => {
-  return (dispatch: Dispatch<Action>) => {
-    dispatch({
-      type: UserTypes.FETCH_USER,
-    });
-    fetch(' https://api.github.com/users/gaearon')
-      .then((res): Promise<IUserList> => res.json())
-      .then((data) => {
-        dispatch({ type: UserTypes.FETCH_USER_SUCCESS });
-        console.log(data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
-};
+export const setLoading = (loading: boolean) => ({
+  type: UserTypes.SET_LOADING,
+  payload: loading,
+});
 
 export const setSearch = (search: string) => ({
   type: UserTypes.SET_SEARCH,
   payload: search,
+});
+
+export const setIsActive = (isActive: boolean) => ({
+  type: UserTypes.SET_ISACTIVE,
+  payload: isActive,
+});
+
+export const setUserData = (userData: IUserList) => ({
+  type: UserTypes.SET_USER_DATA,
+  payload: userData,
+});
+
+export const setRepoData = (repoData: IRepoList[]) => ({
+  type: UserTypes.SET_REPO_DATA,
+  payload: repoData,
 });
