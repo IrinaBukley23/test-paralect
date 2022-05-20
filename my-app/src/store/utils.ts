@@ -1,5 +1,6 @@
 export type State = {
   user: IUserData;
+  repo: IRepoData;
 };
 
 export const initialState: State = {
@@ -9,6 +10,9 @@ export const initialState: State = {
     error: '',
     search: '',
     isActive: false,
+  },
+  repo: {
+    repoData: [],
   },
 };
 
@@ -30,4 +34,20 @@ export interface IUserList {
   public_repos?: number;
   twitter_username?: string;
   type?: string;
+}
+
+export interface IRepoData {
+  repoData: IRepoList[];
+}
+
+export interface IRepoList {
+  name: string;
+  id?: number;
+  description: string;
+  created_at?: string;
+  forks?: number;
+  language?: string;
+  open_issues?: number;
+  visibility?: string;
+  watchers?: number;
 }

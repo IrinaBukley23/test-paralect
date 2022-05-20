@@ -4,6 +4,7 @@ import Input from '../Input/Input';
 import {
   setIsActive,
   setLoading,
+  setRepoData,
   setSearch,
   setUserData,
 } from '../../store/actions/actionCreators';
@@ -11,13 +12,21 @@ import { useDispatch, useSelector } from 'react-redux';
 import { State } from '../../store/utils';
 
 const Header = () => {
-  const { search, isActive, userData } = useSelector((state: State) => state.user);
+  const { search, isActive } = useSelector((state: State) => state.user);
   const dispatch = useDispatch();
 
-  const getData = async (url: string) => {
+  const getUserData = async (url: string) => {
     const res = await fetch(url);
     const data = await res.json();
+    console.log(data);
     dispatch(setUserData(data));
+    dispatch(setLoading(false));
+  };
+  const getRepoData = async (url: string) => {
+    const res = await fetch(url);
+    const data = await res.json();
+    console.log(data);
+    dispatch(setRepoData(data));
     dispatch(setLoading(false));
   };
 
@@ -30,13 +39,17 @@ const Header = () => {
     e.preventDefault();
     dispatch(setSearch(''));
     try {
-      getData(`https://api.github.com/users/${search}`);
+      getUserData(`https://api.github.com/users/${search}`);
+    } catch (error) {
+      console.log('Error...');
+    }
+    try {
+      getRepoData(`https://api.github.com/users/${search}/repos`);
     } catch (error) {
       console.log('Error...');
     }
   };
-  console.log(userData);
-  console.log(search);
+
   return (
     <Styled.Header>
       <Styled.Wrapper>

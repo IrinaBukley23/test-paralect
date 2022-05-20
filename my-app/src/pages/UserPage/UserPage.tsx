@@ -8,7 +8,7 @@ import Preloader from '../../components/Preloader/Preloader';
 
 const UserPage = () => {
   const { loading, userData } = useSelector((state: State) => state.user);
-
+  const { repoData } = useSelector((state: State) => state.repo);
   const preloader = loading ? <Preloader /> : null;
 
   const followers = userData.followers;
@@ -41,18 +41,14 @@ const UserPage = () => {
       <Styled.Repos>
         <Styled.Title>Repositories ({userData.public_repos})</Styled.Title>
         <Styled.Ul>
-          <li>
-            <RepoInfo />
-          </li>
-          <li>
-            <RepoInfo />
-          </li>
-          <li>
-            <RepoInfo />
-          </li>
-          <li>
-            <RepoInfo />
-          </li>
+          {repoData.map((item, i) => {
+            return (
+              // eslint-disable-next-line react/jsx-key
+              <li>
+                <RepoInfo key={i} repoItem={item} />
+              </li>
+            );
+          })}
         </Styled.Ul>
       </Styled.Repos>
     </Styled.Wrapper>

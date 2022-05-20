@@ -1,12 +1,15 @@
+import { IRepoList } from '../../store/utils';
 import * as Styled from './RepoInfo.style';
 
-const RepoInfo = () => {
+interface IProps {
+  repoItem: IRepoList;
+}
+
+const RepoInfo = (props: IProps) => {
   return (
     <Styled.Item>
-      <Styled.Title>react-hot-loader</Styled.Title>
-      <Styled.Descr>
-        Tweak React components in real time. (Deprecated: use Fast Refresh instead.)
-      </Styled.Descr>
+      <Styled.Title>{props.repoItem.name}</Styled.Title>
+      <Styled.Descr>{props.repoItem.description}</Styled.Descr>
     </Styled.Item>
   );
 };

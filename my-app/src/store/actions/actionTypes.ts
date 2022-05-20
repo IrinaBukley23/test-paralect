@@ -1,8 +1,9 @@
-import { IUserList } from '../utils';
+import { IRepoList, IUserList } from '../utils';
 
 export enum UserTypes {
   SET_LOADING = 'SET_LOADING',
   SET_USER_DATA = 'SET_USER_DATA',
+  SET_REPO_DATA = 'SET_REPO_DATA',
   SET_SEARCH = 'SET_SEARCH',
   SET_ISACTIVE = 'SET_ISACTIVE',
 }
@@ -23,4 +24,8 @@ export type Action =
   | {
       type: UserTypes.SET_ISACTIVE;
       payload: boolean;
+    }
+  | {
+      type: UserTypes.SET_REPO_DATA;
+      payload: IRepoList[];
     };
