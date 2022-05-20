@@ -12,6 +12,8 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<StartPage />} />
           <Route path="user" element={<UserPage />} />
+          <Route path="user/:id" element={<UserPage />} />
+          <Route path="user" element={<UserPage />} />
           <Route path="*" element={<ErrorPage />} />
         </Route>
       </Routes>
