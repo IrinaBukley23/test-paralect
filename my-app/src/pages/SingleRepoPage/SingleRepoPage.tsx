@@ -14,10 +14,12 @@ const SinglePage = () => {
   const [repo, setRepo] = useState<IRepoList>();
   const [isLoaded, setIsLoaded] = useState(false);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const res: Array<string> = [];
   useEffect(() => {
     getData(`https://api.github.com/repos/${userData.login}/${res}`);
-  }, [res, userData.login]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   repoData.map((elem) => {
     elem.id == id ? res.push(elem.name) : res;

@@ -1,7 +1,7 @@
-import * as Styled from './NotFoundPage.style';
+import * as Styled from './NotFoundUser.style';
 import user from '../../assets/img/user_not.png';
 
-const NotFoundPage = () => {
+const NotFoundUser = () => {
   return (
     <Styled.Error>
       <Styled.Image>
@@ -12,4 +12,4 @@ const NotFoundPage = () => {
   );
 };
 
-export default NotFoundPage;
+export default NotFoundUser;

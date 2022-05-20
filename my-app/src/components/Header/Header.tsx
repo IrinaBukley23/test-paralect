@@ -10,7 +10,6 @@ import {
 } from '../../store/actions/actionCreators';
 import { useDispatch, useSelector } from 'react-redux';
 import { State } from '../../store/utils';
-import CustomLink from '../CustomLink/CustomLink';
 
 const Header = () => {
   const { search, isActive } = useSelector((state: State) => state.user);
