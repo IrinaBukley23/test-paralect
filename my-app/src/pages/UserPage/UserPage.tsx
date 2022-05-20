@@ -1,46 +1,45 @@
-import { useState, useEffect } from 'react';
 import * as Styled from './UserPage.style';
 import dbl from '../../assets/icons/dbl.png';
 import single from '../../assets/icons/single.png';
 import RepoInfo from '../../components/RepoInfo/RepoInfo';
+import { useSelector } from 'react-redux';
+import { State } from '../../store/utils';
+import Preloader from '../../components/Preloader/Preloader';
 
 const UserPage = () => {
-  const [users, setUsers] = useState([]);
+  const { loading, userData } = useSelector((state: State) => state.user);
 
-  useEffect(() => {
-    fetch(' https://api.github.com/users/gaearon')
-      .then((res) => res.json())
-      .then((data) => {
-        setUsers(data);
-        console.log(data);
-      });
-  }, []);
+  const preloader = loading ? <Preloader /> : null;
+
+  const followers = userData.followers;
+  const num = followers && followers > 1000 ? `${(followers / 1000).toFixed(1)}k` : followers;
 
   return (
     <Styled.Wrapper>
+      {preloader}
       <Styled.Personal>
         <Styled.Photo>
-          <img src="https://avatars.githubusercontent.com/u/810438?v=4" alt="photo" />
+          <img src={userData.avatar_url} alt="photo" />
         </Styled.Photo>
-        <Styled.Name>Dan </Styled.Name>
-        <Styled.Username>gaearon</Styled.Username>
+        <Styled.Name>{userData.name}</Styled.Name>
+        <Styled.Username>{userData.login}</Styled.Username>
         <Styled.Statistics>
           <Styled.Followers>
             <Styled.FollDbl>
-              <img src={dbl} alt={dbl} />
+              <img src={dbl} alt="dbl" />
             </Styled.FollDbl>
-            <span>74258 followers</span>
+            <span>{num} followers</span>
           </Styled.Followers>
           <Styled.Followers>
             <Styled.FollSingle>
-              <img src={single} alt={single} />
+              <img src={single} alt="single" />
             </Styled.FollSingle>
-            <span>172 following</span>
+            <span>{userData.following} following</span>
           </Styled.Followers>
         </Styled.Statistics>
       </Styled.Personal>
       <Styled.Repos>
-        <Styled.Title>Repositories (249)</Styled.Title>
+        <Styled.Title>Repositories ({userData.public_repos})</Styled.Title>
         <Styled.Ul>
           <li>
             <RepoInfo />

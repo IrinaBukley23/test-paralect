@@ -1,33 +1,29 @@
-import { Action, IUserList, UserTypes } from '../actions/actionTypes';
+import { Action, UserTypes } from '../actions/actionTypes';
+import { Reducer } from 'redux';
+import { initialState, IUserData } from '../utils';
 
-type State = {
-  user: IUserList;
-  loading: boolean;
-  error: string;
-  search: string;
-};
-
-const initialState: State = {
-  user: {},
-  loading: false,
-  error: '',
-  search: '',
-};
-
-export const userReducer = (state: State = initialState, action: Action): State => {
+export const userReducer: Reducer<IUserData, Action> = (
+  state: IUserData = initialState.user,
+  action: Action
+): IUserData => {
   switch (action.type) {
-    case UserTypes.FETCH_USER: {
+    case UserTypes.SET_LOADING: {
       return {
         ...state,
-        user: {},
-        loading: true,
+        loading: action.payload,
       };
     }
-    case UserTypes.FETCH_USER_SUCCESS: {
+    case UserTypes.SET_USER_DATA: {
       return {
         ...state,
-        user: action.payload,
+        userData: action.payload,
         loading: false,
+      };
+    }
+    case UserTypes.SET_ISACTIVE: {
+      return {
+        ...state,
+        isActive: action.payload,
       };
     }
     case UserTypes.SET_SEARCH: {
