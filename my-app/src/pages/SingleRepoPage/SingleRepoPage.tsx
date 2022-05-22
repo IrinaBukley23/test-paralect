@@ -4,8 +4,9 @@ import { useState, useEffect } from 'react';
 import Preloader from '../../components/Preloader/Preloader';
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
 import { useSelector } from 'react-redux';
+import * as Styled from './SingleRepoPage.style';
 
-const SinglePage = () => {
+const SingleRepoPage = () => {
   const { userData } = useSelector((state: State) => state.user);
   const { repoData } = useSelector((state: State) => state.repo);
   const { id } = useParams();
@@ -37,18 +38,20 @@ const SinglePage = () => {
   } else if (repo) {
     return (
       <>
-        <div className="container">
-          <ul>
-            <li>Name: {repo.name}</li>
-            <li>Description: {repo.description}</li>
-            <li>Created: {repo.created_at}</li>
-            <li>Language: {repo.language}</li>
-            <li>Issues: {repo.open_issues}</li>
-            <li>Visibility: {repo.visibility}</li>
-            <li>Watchers: {repo.watchers}</li>
-          </ul>
-        </div>
-        <button onClick={goBack}>Go back...</button>
+        <Styled.Wrapper>
+          <Styled.Descr>
+            <Styled.List>
+              <li>Name: {repo.name}</li>
+              <li>Description: {repo.description}</li>
+              <li>Created: {repo.created_at}</li>
+              <li>Language: {repo.language}</li>
+              <li>Issues: {repo.open_issues}</li>
+              <li>Visibility: {repo.visibility}</li>
+              <li>Watchers: {repo.watchers}</li>
+            </Styled.List>
+            <Styled.Button onClick={goBack}>Go back...</Styled.Button>
+          </Styled.Descr>
+        </Styled.Wrapper>
       </>
     );
   } else {
@@ -56,4 +59,4 @@ const SinglePage = () => {
   }
 };
 
-export default SinglePage;
+export default SingleRepoPage;

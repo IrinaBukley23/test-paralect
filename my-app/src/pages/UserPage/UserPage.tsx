@@ -7,20 +7,19 @@ import UserInfo from '../../components/UserInfo/UsreInfo';
 import StartPage from '../StartPage/StartPage';
 
 const UserPage = () => {
-  const { loading, userData } = useSelector((state: State) => state.user);
+  const { loading, userData, search } = useSelector((state: State) => state.user);
   const { repoData } = useSelector((state: State) => state.repo);
 
   const preloader = loading ? <Preloader /> : null;
-  const content = !userData ? (
-    <StartPage />
-  ) : userData ? (
-    <UserInfo userData={userData} repoData={repoData} />
-  ) : (
-    <NotFoundUser />
-  );
+  const start = !search && !loading && !userData.id ? <StartPage /> : null;
+  const content = userData.id ? <UserInfo userData={userData} repoData={repoData} /> : null;
+  const notFound = !userData.id && search && loading ? <NotFoundUser /> : null;
 
+  console.log(userData);
   return (
     <Styled.Wrapper>
+      {start}
+      {notFound}
       {content}
       {preloader}
     </Styled.Wrapper>

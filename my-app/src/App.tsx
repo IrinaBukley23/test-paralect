@@ -1,7 +1,6 @@
 import './main.css';
 import { Routes, Route } from 'react-router-dom';
 import UserPage from './pages/UserPage/UserPage';
-import StartPage from './pages/StartPage/StartPage';
 import Layout from './components/Layout/Layout';
 import ErrorPage from './pages/ErrorPage/ErrorPage';
 import SingleUserPage from './pages/SingleUserPage/SingleUserPage';
