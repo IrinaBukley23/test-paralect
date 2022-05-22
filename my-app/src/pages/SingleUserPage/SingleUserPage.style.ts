@@ -7,6 +7,10 @@ export const Wrapper = styled.div`
   padding: 40px 57px;
   display: flex;
   flex-wrap: wrap;
+  @media (max-width: 768px) {
+    padding: 10px 20px;
+    height: auto;
+  }
 `;
 
 export const Image = styled.div`
@@ -19,6 +23,9 @@ export const Image = styled.div`
   img {
     width: 100%;
   }
+  @media (max-width: 768px) {
+    margin: 0 0 20px 0;
+  }
 `;
 
 export const Descr = styled.div`
@@ -29,7 +36,7 @@ export const Descr = styled.div`
 export const List = styled.ul`
   list-style: none;
   li {
-    margin: 0 0 20px 0;
+    margin: 0 0 10px 0;
   }
 `;
 

@@ -34,6 +34,7 @@ export interface IUserList {
   public_repos?: number;
   twitter_username?: string;
   type?: string;
+  message?: string;
 }
 
 export interface IRepoData {

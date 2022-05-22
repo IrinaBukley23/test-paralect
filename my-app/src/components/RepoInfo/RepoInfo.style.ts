@@ -15,6 +15,9 @@ export const Title = styled.div`
   font-size: 24px;
   line-height: 29px;
   color: #0064eb;
+  @media (max-width: 768px) {
+    font-size: 18px;
+  }
 `;
 export const Descr = styled.div`
   font-weight: 400;

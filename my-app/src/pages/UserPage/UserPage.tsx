@@ -12,10 +12,9 @@ const UserPage = () => {
 
   const preloader = loading ? <Preloader /> : null;
   const start = !search && !loading && !userData.id ? <StartPage /> : null;
+  const notFound = userData.message == 'Not Found' ? <NotFoundUser /> : null;
   const content = userData.id ? <UserInfo userData={userData} repoData={repoData} /> : null;
-  const notFound = !userData.id && search && loading ? <NotFoundUser /> : null;
 
-  console.log(userData);
   return (
     <Styled.Wrapper>
       {start}

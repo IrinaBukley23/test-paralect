@@ -2,9 +2,16 @@ import styled from 'styled-components';
 
 export const Personal = styled.div`
   width: 35%;
+  @media (max-width: 768px) {
+    width: 100%;
+    margin-bottom: 30px;
+  }
 `;
 export const Repos = styled.div`
   width: 65%;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 export const Photo = styled.div`
   width: 280px;
@@ -42,6 +49,9 @@ export const Followers = styled.div`
     line-height: 150%;
     color: #000000;
   }
+  @media (max-width: 768px) {
+    margin-right: 8px;
+  }
 `;
 export const FollDbl = styled.div`
   width: 22px;
@@ -65,8 +75,14 @@ export const Title = styled.h3`
   font-size: 32px;
   line-height: 130%;
   color: #000000;
+  @media (max-width: 768px) {
+    font-size: 26px;
+  }
 `;
 export const Ul = styled.ul`
   list-style: none;
   max-width: 870px;
+  @media (max-width: 768px) {
+    overflow: hidden;
+  }
 `;

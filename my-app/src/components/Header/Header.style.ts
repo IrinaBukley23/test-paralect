@@ -10,6 +10,7 @@ export const Wrapper = styled.div`
   max-width: 1366px;
   margin: auto;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
 `;
 
@@ -19,5 +20,8 @@ export const Logo = styled.div`
   margin-right: 22px;
   img {
     width: 100%;
+  }
+  @media (max-width: 768px) {
+    margin: 0 auto 15px;
   }
 `;

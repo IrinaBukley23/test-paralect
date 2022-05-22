@@ -4,7 +4,7 @@ export const Form = styled.form`
   position: relative;
   input {
     margin-right: 20px;
-    width: 500px;
+    max-width: 450px;
     border: none;
     border-radius: 6px;
     padding: 8px 44px;
